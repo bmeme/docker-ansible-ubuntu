@@ -1,13 +1,13 @@
-FROM ubuntu:focal-20220922
+FROM ubuntu:jammy-20231128
 LABEL   com.bmeme.project.family='Ubuntu Docker Image' \
-        com.bmeme.project.version='focal-20220922' \
+        com.bmeme.project.version='2204-2.17' \
         com.bmeme.maintainer.1='Daniele Piaggesi <daniele.piaggesi@bmeme.com>' \
         com.bmeme.maintainer.2='Roberto Mariani <roberto.mariani@bmeme.com>' \
-        com.bmeme.maintainer.3='Michele Mondelli <michele.mondelli@bmeme.com>' \
-        com.bmeme.refreshedat='2022-10-10'
+        com.bmeme.refreshedat='2023-12-14'
 
 ARG DEBIAN_FRONTEND=noninteractive
-ENV UBUNTU_VERSION 20.04
+ENV UBUNTU_VERSION 22.04
+ENV ANSIBLE_CORE_VERSION 2.17
 
 # Install dependencies.
 RUN apt-get update; \
@@ -40,7 +40,7 @@ RUN apt-get update; \
 
 # Upgrade Pip, install and configure Ansible.
 RUN python3 -m pip install --upgrade pip; \
-    python3 -m pip install ansible; \
+    python3 -m pip install ansible-core==${ANSIBLE_CORE_VERSION}; \
     mkdir -p /etc/ansible; \
     echo "[local]\nlocalhost ansible_connection=local" > /etc/ansible/hosts
 
