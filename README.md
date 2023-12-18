@@ -10,7 +10,7 @@ Ubuntu "Ansible Ready" images based on [official Ubuntu repository](https://hub.
 This project is basically a *fork* of [Geerlingguy](https://github.com/geerlingguy) `docker-ubuntuXX-ansible` projects modified at our needs
 
 ## What is contained in the images
-* ansible, of course
+* ansible-core
 * apt-utils
 * build-essential
 * software-properties-common
@@ -25,11 +25,18 @@ This project is basically a *fork* of [Geerlingguy](https://github.com/geerlingg
 * sudo
 
 ## Supported tags and respective `Dockerfile` links
-- `jammy-20221003`, `jammy`, `22.04`, `latest` [Dockerfile](https://github.com/bmeme/docker-ansible-ubuntu/blob/main/22.04/Dockerfile)
-- `focal-20220922`, `focal`, `20.04` [Dockerfile](https://github.com/bmeme/docker-ansible-ubuntu/blob/main/20.04/Dockerfile)
+- `22.04-2.17` [Dockerfile](https://github.com/bmeme/docker-ansible-ubuntu/blob/main/22.04/2.17/Dockerfile)
+- `22.04-2.13` [Dockerfile](https://github.com/bmeme/docker-ansible-ubuntu/blob/main/22.04/2.13/Dockerfile)
+- `20.04-2.13` [Dockerfile](https://github.com/bmeme/docker-ansible-ubuntu/blob/main/20.04/2.13/Dockerfile)
+- `20.04-2.11` [Dockerfile](https://github.com/bmeme/docker-ansible-ubuntu/blob/main/20.04/2.11/Dockerfile)
+
+## Tag system
+The tag of each image is composed by two values, separated by a `-`. 
+The first one represents the Ubuntu LTS version (only LTS version will be supported). The second one represents the
+`ansible-core` version.
 
 ## Credits
 This project is a contribution of [Bmeme :: The Digital Factory](http://www.bmeme.com).
-This library is actually maintained by [Daniele Piaggesi](https://github.com/g0blin79), 
-[Roberto Mariani](https://github.com/jean-louis) and [Michele Mondelli](https://github.com/Mithenks).
+This library is actually maintained by [Daniele Piaggesi](https://github.com/g0blin79) and
+[Roberto Mariani](https://github.com/jean-louis).
 Any other contribution will be really appreciated.
