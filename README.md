@@ -25,8 +25,12 @@ This project is basically a *fork* of [Geerlingguy](https://github.com/geerlingg
 * sudo
 
 ## Supported tags and respective `Dockerfile` links
+- `latest`, `24.04-2.18` [Dockerfile](https://github.com/bmeme/docker-ansible-ubuntu/blob/main/24.04/2.18/Dockerfile)
+- `24.04-2.17` [Dockerfile](https://github.com/bmeme/docker-ansible-ubuntu/blob/main/24.04/2.17/Dockerfile)
 - `22.04-2.17` [Dockerfile](https://github.com/bmeme/docker-ansible-ubuntu/blob/main/22.04/2.17/Dockerfile)
-- `22.04-2.13` [Dockerfile](https://github.com/bmeme/docker-ansible-ubuntu/blob/main/22.04/2.13/Dockerfile)
+- `22.04-2.16` [Dockerfile](https://github.com/bmeme/docker-ansible-ubuntu/blob/main/22.04/2.16/Dockerfile)
+- `22.04-2.15` [Dockerfile](https://github.com/bmeme/docker-ansible-ubuntu/blob/main/22.04/2.15/Dockerfile)
+- `20.04-2.14` [Dockerfile](https://github.com/bmeme/docker-ansible-ubuntu/blob/main/20.04/2.14/Dockerfile)
 - `20.04-2.13` [Dockerfile](https://github.com/bmeme/docker-ansible-ubuntu/blob/main/20.04/2.13/Dockerfile)
 - `20.04-2.11` [Dockerfile](https://github.com/bmeme/docker-ansible-ubuntu/blob/main/20.04/2.11/Dockerfile)
 

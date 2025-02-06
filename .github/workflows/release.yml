@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - "main"
+  schedule:
+    - cron: 01 00 */7 * *
 
 env:
   registry: docker.io

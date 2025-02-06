@@ -1,13 +1,13 @@
-FROM ubuntu:jammy-20231128
+FROM ubuntu:20.04
 LABEL   com.bmeme.project.family='Ubuntu Docker Image' \
-        com.bmeme.project.version='2204-2.13' \
+        com.bmeme.project.version='20.04-2.13' \
         com.bmeme.maintainer.1='Daniele Piaggesi <daniele.piaggesi@bmeme.com>' \
         com.bmeme.maintainer.2='Roberto Mariani <roberto.mariani@bmeme.com>' \
         com.bmeme.refreshedat='2023-12-14'
 
 ARG DEBIAN_FRONTEND=noninteractive
-ENV UBUNTU_VERSION 22.04
-ENV ANSIBLE_CORE_VERSION 2.13
+ENV UBUNTU_VERSION 20.04
+ENV ANSIBLE_CORE_VERSION 2.14
 
 # Install dependencies.
 RUN apt-get update; \
