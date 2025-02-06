@@ -1,13 +1,13 @@
-FROM ubuntu:20.04
+FROM ubuntu:22.04
 LABEL   com.bmeme.project.family='Ubuntu Docker Image' \
-        com.bmeme.project.version='20.04-2.11' \
+        com.bmeme.project.version='2204-2.13' \
         com.bmeme.maintainer.1='Daniele Piaggesi <daniele.piaggesi@bmeme.com>' \
         com.bmeme.maintainer.2='Roberto Mariani <roberto.mariani@bmeme.com>' \
-        com.bmeme.refreshedat='2023-12-14'
+        com.bmeme.refreshedat='2025-02-06'
 
 ARG DEBIAN_FRONTEND=noninteractive
-ENV UBUNTU_VERSION 20.04
-ENV ANSIBLE_CORE_VERSION 2.11
+ENV UBUNTU_VERSION 22.04
+ENV ANSIBLE_CORE_VERSION 2.15
 
 # Install dependencies.
 RUN apt-get update; \
@@ -29,7 +29,7 @@ RUN apt-get update; \
     rm -Rf /usr/share/doc; \
     rm -Rf /usr/share/man; \
     # Configure Rsyslog
-    sed -i "s/^\($ModLoad imklog\)/#\1/" /etc/rsyslog.conf; \
+    sed -i 's/^\($ModLoad imklog\)/#\1/' /etc/rsyslog.conf; \
     # Set locale
     locale-gen en_US.UTF-8; \
     # Remove unnecessary getty and udev targets that result in high CPU usage when using
@@ -39,14 +39,14 @@ RUN apt-get update; \
     
 
 # Upgrade Pip, install and configure Ansible.
-RUN python3 -m pip install --no-cache-dir ansible-core==${ANSIBLE_CORE_VERSION}; \
+RUN python3 -m pip install --upgrade pip; \
+    python3 -m pip install ansible-core==${ANSIBLE_CORE_VERSION}; \
     mkdir -p /etc/ansible; \
-    printf "[local]\nlocalhost ansible_connection=local" > /etc/ansible/hosts
+    echo "[local]\nlocalhost ansible_connection=local" > /etc/ansible/hosts
 
 # Copy fake initctl
 COPY $UBUNTU_VERSION/initctl .
 RUN chmod +x initctl && rm -fr /sbin/initctl && ln -s /initctl /sbin/initctl
 
-WORKDIR /opt
 VOLUME ["/sys/fs/cgroup", "/tmp", "/run"]
 CMD ["/lib/systemd/systemd"]
